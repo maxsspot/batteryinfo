@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>BATTERY & CHARGING INFO</title>
+	</head>
+	<body style = "text-align:center;color:white;background-color:black;">
+        <h1>BASIC INFO</h1>
+		<p>Battery precentage <br><b><span id = "precent"></span>%</b>.</p>
+        <br>
+        <h1>CHARGING INFO</h1>
+        <p>Charging <br><b><span id = "isCharging"></span></b>.</p>
+        <p>Time until fully charged <br><b><span id = "time"></span> minutes</b>.</p>
+        <script>
+        setInterval(function () {
+    navigator.getBattery().then(function(battery) {
+        document.getElementById ("precent").innerHTML = battery.level;
+        document.getElementById ("isCharging").innerHTML = battery.charging;
+        document.getElementById ("time").innerHTML = battery.chargingTime;
+    });
+}, 1);
+
+</script>
+	</body>
+</html>
